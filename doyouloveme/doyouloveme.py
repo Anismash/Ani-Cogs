@@ -8,7 +8,10 @@ class doyouloveme:
 
     def __init__(self, bot):
         self.bot = bot
-        self.love = ["Yes, I do!","Die!","I-It's not that I like you or anything...","If you bow down and kiss my feet, {}"]
+        self.love = ["Yes, I do! :heart:",
+                     "Die!",
+                     "I-It's not that I like you or anything...",
+                     "If you bow down and kiss my feet, {}"]
 
     @commands.command(pass_context=True)
     async def doyouloveme(self, ctx):
