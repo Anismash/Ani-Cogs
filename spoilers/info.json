@@ -1,7 +1,7 @@
 {
     "AUTHOR" : "Twentysix26",
-    "INSTALL_MSG" : "You will install doyouloveme.",
-    "NAME" : "doyouloveme",
-    "SHORT" : "Random Love Answer",
-    "DESCRIPTION" : "Will give a random answer to the question 'do you love me'"
+    "INSTALL_MSG" : "You will install spoilers.",
+    "NAME" : "Spoilers",
+    "SHORT" : "Will Hide Spoilers",
+    "DESCRIPTION" : "Will hide and save spoilers from others and send them via PM to the People who want to see it."
 }
