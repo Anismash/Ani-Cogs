@@ -18,7 +18,9 @@ class doyouloveme:
                      "I don't care what you feel http://i.imgur.com/VhZZUH0.gif",
                      "We will have much fun http://i.imgur.com/QY5zTs0.gif",
                      "What is love? http://i.imgur.com/GCLzjTO.gif",
-                     "I will crush your nuts http://i.imgur.com/zCRMpX7.gif"]
+                     "I will crush your nuts http://i.imgur.com/zCRMpX7.gif",
+                     "Yes... I love you ~ http://i.imgur.com/KKjHhUV.gif",
+                     "B-Baka! Stop asking this! http://i.imgur.com/zde7L1w.gif"]
 
     @commands.command(pass_context=True)
     async def doyouloveme(self, ctx):
