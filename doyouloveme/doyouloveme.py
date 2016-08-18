@@ -30,7 +30,7 @@ class doyouloveme:
         if user == None:
             user = ctx.message.author
             await self.bot.say(random.choice(self.love).format(user.mention))
-        else 
+        else: 
             await self.bot.say(random.choice(self.loveothers).format(user.mention))
         
 
