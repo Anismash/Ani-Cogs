@@ -21,13 +21,18 @@ class doyouloveme:
                      "I will crush your nuts http://i.imgur.com/zCRMpX7.gif",
                      "Yes... I love you ~ http://i.imgur.com/KKjHhUV.gif",
                      "B-Baka! Stop asking this! http://i.imgur.com/zde7L1w.gif"]
+        self.loveothers = ["Yes, {} loves you :heart:",
+                           "No, {} doesn't loves you :broken_heart:"]
 
     @commands.command(pass_context=True)
-    async def doyouloveme(self, ctx):
+    async def doyouloveme(self, ctx, *, user : discord.Member=None):
         """Random Love Answer"""
-        user = ctx.message.author
-        #Your code will go here
-        await self.bot.say(random.choice(self.love).format(user.mention))
+        if user == None:
+            user = ctx.message.author
+            await self.bot.say(random.choice(self.love).format(user.mention))
+        else 
+            await self.bot.say(random.choice(self.loveothers).format(user.mention))
+        
 
 def setup(bot):
     bot.add_cog(doyouloveme(bot))
