@@ -6,6 +6,7 @@ from cogs.utils.dataIO import dataIO
 from discord.ext import commands
 from __main__ import send_cmd_help
 from .economy import NoAccount, NegativeValue
+from cogs.utils import checks
 
 class Jobs:
     """Jobs"""
@@ -68,6 +69,7 @@ class Jobs:
             await send_cmd_help(ctx)
 
     @job.command(pass_context=True)
+    @checks.mod_or_permissions(manage_messages=True)
     async def add(self, ctx, job : str, time : int, payout : int, role : discord.Role=None):
         """Adds job"""
         server = ctx.message.server
@@ -87,6 +89,7 @@ class Jobs:
             await self.bot.say("A job with that name already exists.")
 
     @job.command(pass_context=True)
+    @checks.mod_or_permissions(manage_messages=True)
     async def remove(self, ctx, *, job : str):
         """Removes job"""
         server = ctx.message.server
