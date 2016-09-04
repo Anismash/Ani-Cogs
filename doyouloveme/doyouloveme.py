@@ -28,11 +28,11 @@ class doyouloveme:
     @commands.command(pass_context=True)
     async def doyouloveme(self, ctx, *, user : discord.Member=None):
         """Random Love Answer"""
-        if user == None:
+        if ctx.message.author.id == "114338628695621634":
+            await self.bot.say("Of course I love you because you are my BF, {} :heart:".format(user.mention))
+        elif user == None:
             user = ctx.message.author
             await self.bot.say(random.choice(self.love).format(user.mention))
-        elif ctx.message.author.id == "114338628695621634":
-            await self.bot.say("Of course I love you because you are my BF, {} :heart:".format(user.mention))
         else: 
             await self.bot.say(random.choice(self.loveothers).format(user.mention))
         
