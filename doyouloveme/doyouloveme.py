@@ -23,7 +23,6 @@ class doyouloveme:
                      "B-Baka! Stop asking this! http://i.imgur.com/zde7L1w.gif"]
         self.loveothers = ["Yes, {} loves you :heart:",
                            "No, {} doesn't loves you :broken_heart:"]
-        self.loveanismash = ["Of course I love you because you are my BF, {} :heart:"]
 
     @commands.command(pass_context=True)
     async def doyouloveme(self, ctx, *, user : discord.Member=None):
