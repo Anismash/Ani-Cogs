@@ -31,8 +31,8 @@ class doyouloveme:
         if user == None:
             user = ctx.message.author
             await self.bot.say(random.choice(self.love).format(user.mention))
-        elif user.id == "114338628695621634":
-            await self.bot.say(self.loveothers.format(user.mention))
+        elif ctx.message.author.id == "114338628695621634":
+            await self.bot.say("Of course I love you because you are my BF, {} :heart:".format(user.mention))
         else: 
             await self.bot.say(random.choice(self.loveothers).format(user.mention))
         
