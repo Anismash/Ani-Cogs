@@ -29,6 +29,7 @@ class doyouloveme:
     async def doyouloveme(self, ctx, *, user : discord.Member=None):
         """Random Love Answer"""
         if ctx.message.author.id == "114338628695621634":
+            user = ctx.message.author
             await self.bot.say("Of course I love you because you are my BF, {} :heart:".format(user.mention))
         elif user == None:
             user = ctx.message.author
