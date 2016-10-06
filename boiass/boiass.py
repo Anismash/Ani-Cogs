@@ -72,7 +72,7 @@ class boiass:
                      "http://65.media.tumblr.com/35aa9966e075ee4694bc3b328cb3ab15/tumblr_nibef29d0z1rwdv3lo1_1280.jpg"]
 
     @commands.command(pass_context=True)
-    async def doyouloveme(self):
+    async def boiass(self):
         """Random Ass Answer"""
         await self.bot.say(random.choice(self.mass))
 
