@@ -4,11 +4,11 @@ import random
 import discord
 
 class boiass:
-    """Random Male Ass"""
+    """Random Male"""
 
     def __init__(self, bot):
         self.bot = bot
-        self.mass = ["http://rs909.pbsrc.com/albums/ac298/ironicirony/Shirtless/1509.jpg?w=480&h=480&fit=clip",
+        self.male = ["http://rs909.pbsrc.com/albums/ac298/ironicirony/Shirtless/1509.jpg?w=480&h=480&fit=clip",
                      "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcQAoU9d-ojkjklLZH1FjjZoM1DvXeD0humI0YjLmoZBBWOMwXrp",
                      "http://img2.izismile.com/img/img3/20100820/640/sexy_shirtless_men_640_09.jpg",
                      "http://img2.izismile.com/img/img3/20100820/640/sexy_shirtless_men_640_10.jpg",
@@ -72,9 +72,9 @@ class boiass:
                      "http://65.media.tumblr.com/35aa9966e075ee4694bc3b328cb3ab15/tumblr_nibef29d0z1rwdv3lo1_1280.jpg"]
 
     @commands.command(pass_context=True)
-    async def boiass(self):
+    async def boi(self):
         """Random Ass Answer"""
-        await self.bot.say(random.choice(self.mass))
+        await self.bot.say(random.choice(self.male))
 
 def setup(bot):
-    bot.add_cog(boiass(bot))
+    bot.add_cog(boi(bot))
