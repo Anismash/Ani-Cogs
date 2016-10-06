@@ -3,7 +3,7 @@ import os
 import random
 import discord
 
-class boiass:
+class boi:
     """Random Male"""
 
     def __init__(self, bot):
