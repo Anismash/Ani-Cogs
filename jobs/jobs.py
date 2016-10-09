@@ -8,6 +8,8 @@ from __main__ import send_cmd_help
 from .economy import NoAccount, NegativeValue
 from cogs.utils import checks
 
+MAX_INACTIVITY = 60 * 60  # seconds
+
 class Jobs:
     """Jobs"""
 
@@ -146,6 +148,12 @@ class Jobs:
             #print("Removing a job due to offline status")
             self.active_jobs.remove(job)
 
+    def get_job_by_member(self, member):
+        for job in self.active_jobs:
+            if job.member is member:
+                return job
+        return None
+
     def is_user_eligible(self, user, job_name, jobs):
         job = jobs.get(job_name)
         if job["role"] is not None:
@@ -171,10 +179,22 @@ class Jobs:
         if after.status.name == "offline":
             self.remove_active_jobs_by_member(after)
 
+    async def on_message(self, message):
+        job = self.get_job_by_member(message.author)
+        if job:
+            job.check_activity(refresh=True)
+
     async def check_active_jobs(self):
         while self is self.bot.get_cog("Jobs"):
+            to_remove = []
             for job in self.active_jobs:
-                job.check_time()
+                if job.check_activity():
+                    job.check_time()
+                else:
+                    #print("Inactive job. Disabled.")
+                    to_remove.append(job)
+            for job in to_remove:
+                self.active_jobs.remove(job)
             await asyncio.sleep(1)
 
 class ActiveJob:
@@ -184,6 +204,7 @@ class ActiveJob:
         self.job_name = job_name
         self.started = datetime.datetime.now()
         self.cog = cog # Reference to main cog
+        self.last_active = datetime.datetime.now()
 
     def check_time(self):
         server_jobs = self.cog.jobs.get(self.server.id, {})
@@ -203,13 +224,21 @@ class ActiveJob:
         except AttributeError:
             print("Your economy cog seem to be unloaded. Jobs cog failed to deliver payout.")
             return
-        print("Paying {} to {}".format(self.member, job["payout"]))
+        #print("Paying {} to {}".format(self.member, job["payout"]))
         try:
             bank.deposit_credits(self.member, job["payout"])
         except NoAccount:
             print("User {} lacks an account. Jobs cog failed to deliver payout".format(self.member))
         except NegativeValue:
             print("Can't deliver to {} a negative payout. Jobs cog failed to deliver payout".format(self.member))
+
+    def check_activity(self, refresh=False):
+        now = datetime.datetime.now()
+        if (now - self.last_active).seconds >= MAX_INACTIVITY:
+            return False
+        if refresh:
+            self.last_active = now
+        return True
 
 
 def check_folders():
