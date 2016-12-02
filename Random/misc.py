@@ -6,7 +6,7 @@ import os
 import random
 import discord
 
-class Misc:
+class smt:
   """Misc"""
   def __init__(self, bot):
     self.bot = bot
@@ -41,4 +41,4 @@ class Misc:
                   await self.bot.upload(temp_image, filename="retro.jpg")
                   
 def setup(bot):
-  bot.add_cog(Misc(bot))
+  bot.add_cog(smt(bot))
