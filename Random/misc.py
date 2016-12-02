@@ -7,11 +7,13 @@ import random
 import discord
 
 class Misc:
+  """Misc"""
   def __init__(self, bot):
     self.bot = bot
     
-  @commands.command(name="retro", brief="make retro text")
+  @commands.command(pass_context=True)
      async def make_retro(self, *, content : str):
+      """retro"""
       texts = [t.strip() for t in content.split('|')]
       if len(texts) != 3:
         await self.bot.say("\N{CROSS MARK} please provide three strings seperated by `|`")
