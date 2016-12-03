@@ -4,6 +4,7 @@ from io import BytesIO
 from discord.ext import commands
 import os
 import random
+from random import choice
 
 
 class something:
