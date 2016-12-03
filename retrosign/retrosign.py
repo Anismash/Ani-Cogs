@@ -17,13 +17,18 @@ class retrosign:
         """Make a Retrosign"""
         texts = [t.strip() for t in content.split('|')]
         if len(texts) < 3:
-            data = dict(
-              bcg=choice([1, 2, 3, 4, 5]),
-              txt=choice([1, 2, 3, 4]),
-              text1="",
-              text2=texts[0],
-              text3=""
-            )
+            def count_letters(word, char):
+                if sum(char == c for c in word) <= 12:
+                    data = dict(
+                      bcg=choice([1, 2, 3, 4, 5]),
+                      txt=choice([1, 2, 3, 4]),
+                      text1="",
+                      text2=texts[0],
+                      text3=""
+                    )
+                else:
+                    await self.bot.say("\N{CROSS MARK} too many Characters for one Line")
+                    return
         elif len(texts) != 3:
           await self.bot.say("\N{CROSS MARK} please provide three strings seperated by `|`")
           return
