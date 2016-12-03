@@ -61,7 +61,7 @@ class retrosign:
         
         
                     
-    @_retro_.command(pass_context=True)
+    @retrosign.command(pass_context=True)
     async def top(self, *, content : str):
         """Make a Retrosign with top and middle Text"""
         texts = [t.strip() for t in content.split('|')]
@@ -79,7 +79,7 @@ class retrosign:
             )
             do_it()
             
-    @_retro_.command(pass_context=True)
+    @retrosign.command(pass_context=True)
     async def bottom(self, *, content : str):
         """Make a Retrosign with middle and bottom Text"""
         texts = [t.strip() for t in content.split('|')]
