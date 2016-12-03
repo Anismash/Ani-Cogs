@@ -16,7 +16,7 @@ class retrosign:
         """Make a Retrosign"""
         texts = [t.strip() for t in content.split('|')]
         if len(texts) < 3:
-            lenstr = len(texts)
+            lenstr = len(texts[0])
             await self.bot.say(lenstr)
             if lenstr <= 12:
                     data = dict(
