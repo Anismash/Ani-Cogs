@@ -41,5 +41,5 @@ class something:
                     await self.bot.upload(temp_image, filename="retro.jpg")
                   
 def setup(bot):
-  n = smt(bot)
+  n = something(bot)
   bot.add_cog(n)
