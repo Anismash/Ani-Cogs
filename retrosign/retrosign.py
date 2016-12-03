@@ -91,7 +91,7 @@ class retrosign:
             data = dict(
               bcg=choice([1, 2, 3, 4, 5]),
               txt=choice([1, 2, 3, 4]),
-              text1=texts"",
+              text1="",
               text2=texts[0],
               text3=[1]
             )
