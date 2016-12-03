@@ -5,6 +5,7 @@ from discord.ext import commands
 import os
 import random
 from random import choice
+import lxml
 
 
 class something:
