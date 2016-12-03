@@ -16,10 +16,17 @@ class retrosign:
     async def _retro_(self, *, content : str):
         """Make a Retrosign"""
         texts = [t.strip() for t in content.split('|')]
-        if len(texts) != 3:
+        if len(texts) < 3:
+            data = dict(
+              bcg=choice([1, 2, 3, 4, 5]),
+              txt=choice([1, 2, 3, 4]),
+              text1="",
+              text2=texts,
+              text3=""
+        elif len(texts) != 3:
           await self.bot.say("\N{CROSS MARK} please provide three strings seperated by `|`")
           return
-        elif len(texts) > 1:
+        else:
             data = dict(
               bcg=choice([1, 2, 3, 4, 5]),
               txt=choice([1, 2, 3, 4]),
@@ -27,14 +34,8 @@ class retrosign:
               text2=texts[1],
               text3=[2]
             )
-        else:
-            data = dict(
-              bcg=choice([1, 2, 3, 4, 5]),
-              txt=choice([1, 2, 3, 4]),
-              text1="",
-              text2=texts,
-              text3=""
-            )
+        
+
         
 
         await self.bot.type() 
