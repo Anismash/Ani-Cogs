@@ -11,7 +11,7 @@ class retrosign:
     def __init__(self, bot):
       self.bot = bot
     
-    def do_it():
+    async def do_it():
         await self.bot.type() 
 
         with aiohttp.ClientSession() as session:
