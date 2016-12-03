@@ -8,28 +8,36 @@ from random import choice
 import lxml
 
 
-class something:
-    """Some Commands"""
+class retrosign:
     def __init__(self, bot):
       self.bot = bot
     
     @commands.command(name="retro")
     async def _retro_(self, *, content : str):
-        """retro"""
+        """Make a Retrosign"""
         texts = [t.strip() for t in content.split('|')]
         if len(texts) != 3:
           await self.bot.say("\N{CROSS MARK} please provide three strings seperated by `|`")
           return
+        elseif len(texts) = 1:
+            data = dict(
+              bcg=choice([1, 2, 3, 4, 5]),
+              txt=choice([1, 2, 3, 4]),
+              text1=null,
+              text2=texts[1],
+              text3=null
+            )
+        else:
+            data = dict(
+              bcg=choice([1, 2, 3, 4, 5]),
+              txt=choice([1, 2, 3, 4]),
+              text1=texts[0],
+              text2=texts[1],
+              text3=texts[2]
+            )
+        
 
-        await self.bot.type()
-
-        data = dict(
-          bcg=choice([1, 2, 3, 4]),
-          txt=choice([1, 2, 3, 4]),
-          text1=texts[0],
-          text2=texts[1],
-          text3=texts[2]
-        )
+        await self.bot.type() 
 
         with aiohttp.ClientSession() as session:
           async with session.post("http://photofunia.com/effects/retro-wave", data=data) as response:
