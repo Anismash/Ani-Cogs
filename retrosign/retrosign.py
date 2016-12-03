@@ -31,9 +31,9 @@ class retrosign:
             data = dict(
               bcg=choice([1, 2, 3, 4, 5]),
               txt=choice([1, 2, 3, 4]),
-              text1=[0],
+              text1=texts[0],
               text2=texts[1],
-              text3=[2]
+              text3=texts[2]
             )
         
 
