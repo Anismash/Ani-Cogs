@@ -14,12 +14,13 @@ class smt:
     @commands.command(pass_context=True)
     async def make_retro(self, *, content : str):
         """retro"""
-        texts = [t.strip() for t in content.split('|')]
-        if len(texts) != 3:
-            await self.bot.say("\N{CROSS MARK} please provide three strings seperated by `|`")
-            return
+        async def make_retro(self, *, content : str):
+            texts = [t.strip() for t in content.split('|')]
+            if len(texts) != 3:
+              await self.bot.say("\N{CROSS MARK} please provide three strings seperated by `|`")
+              return
 
-          await self.bot.type()
+            await self.bot.type()
 
             data = dict(
               bcg=choice([1, 2, 3, 4]),
