@@ -12,7 +12,7 @@ class retrosign:
     def __init__(self, bot):
       self.bot = bot
     
-    @commands.command(name="retro")
+    @commands.command(name="retrosign")
     async def _retro_(self, *, content : str):
         """Make a Retrosign"""
         texts = [t.strip() for t in content.split('|')]
@@ -51,5 +51,5 @@ class retrosign:
                     await self.bot.upload(temp_image, filename="retro.jpg")
                   
 def setup(bot):
-  n = something(bot)
+  n = retrosign(bot)
   bot.add_cog(n)
