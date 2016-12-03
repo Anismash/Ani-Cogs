@@ -11,6 +11,20 @@ class retrosign:
     def __init__(self, bot):
       self.bot = bot
     
+    def do_it():
+        await self.bot.type() 
+
+        with aiohttp.ClientSession() as session:
+          async with session.post("http://photofunia.com/effects/retro-wave", data=data) as response:
+            if response.status == 200:
+              soup = b_s(await response.text(), "lxml")
+              download_url = soup.find("div", class_="downloads-container").ul.li.a["href"]
+              async with session.get(download_url) as image_response:
+                if image_response.status == 200:
+                  image_data = await image_response.read()
+                  with BytesIO(image_data) as temp_image:
+                    await self.bot.upload(temp_image, filename="retro.jpg")
+    
     @commands.command(name="retrosign")
     async def _retro_(self, *, content : str):
         """Make a Retrosign"""
@@ -19,6 +33,7 @@ class retrosign:
             lenstr = len(texts[0])
             await self.bot.say(lenstr)
             if lenstr <= 12:
+                    global data
                     data = dict(
                       bcg=choice([1, 2, 3, 4, 5]),
                       txt=choice([1, 2, 3, 4]),
@@ -33,6 +48,7 @@ class retrosign:
             await self.bot.say("\N{CROSS MARK} please provide three strings seperated by `|`")
             return
         else:
+            global data
             data = dict(
               bcg=choice([1, 2, 3, 4, 5]),
               txt=choice([1, 2, 3, 4]),
@@ -41,18 +57,41 @@ class retrosign:
               text3=texts[2]
             )
         
-        await self.bot.type() 
-
-        with aiohttp.ClientSession() as session:
-          async with session.post("http://photofunia.com/effects/retro-wave", data=data) as response:
-            if response.status == 200:
-              soup = b_s(await response.text(), "lxml")
-              download_url = soup.find("div", class_="downloads-container").ul.li.a["href"]
-              async with session.get(download_url) as image_response:
-                if image_response.status == 200:
-                  image_data = await image_response.read()
-                  with BytesIO(image_data) as temp_image:
-                    await self.bot.upload(temp_image, filename="retro.jpg")
+        
+                    
+    @retro.command(name="top", pass_context=True, no_pm=True)
+    async def _retro_top(self, *, content : str):
+        """Make a Retrosign with top and middle Text"""
+        texts = [t.strip() for t in content.split('|')]
+        if len(texts) != 2:
+            await self.bot.say("\N{CROSS MARK} please provide two strings seperated by `|`")
+            return
+        else:
+            global data
+            data = dict(
+              bcg=choice([1, 2, 3, 4, 5]),
+              txt=choice([1, 2, 3, 4]),
+              text1=texts[0],
+              text2=texts[1],
+              text3=""
+            )
+            
+    @retro.command(name="bottom", pass_context=True, no_pm=True)
+    async def _retro_bottom(self, *, content : str):
+        """Make a Retrosign with top and middle Text"""
+        texts = [t.strip() for t in content.split('|')]
+        if len(texts) != 2:
+            await self.bot.say("\N{CROSS MARK} please provide two strings seperated by `|`")
+            return
+        else:
+            global data
+            data = dict(
+              bcg=choice([1, 2, 3, 4, 5]),
+              txt=choice([1, 2, 3, 4]),
+              text1=texts"",
+              text2=texts[0],
+              text3=[1]
+            )
                   
 def setup(bot):
   n = retrosign(bot)
