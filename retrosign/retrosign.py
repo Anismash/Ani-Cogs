@@ -5,8 +5,7 @@ from discord.ext import commands
 import os
 import random
 from random import choice
-import lxml
-
+import lxml    
 
 class retrosign:
     def __init__(self, bot):
@@ -17,8 +16,9 @@ class retrosign:
         """Make a Retrosign"""
         texts = [t.strip() for t in content.split('|')]
         if len(texts) < 3:
-            async def count_letters(word, char):
-                if sum(char == c for c in word) <= 12:
+            lenstr = len(texts)
+            await self.bot.say(lenstr)
+            if lenstr <= 12:
                     data = dict(
                       bcg=choice([1, 2, 3, 4, 5]),
                       txt=choice([1, 2, 3, 4]),
@@ -26,12 +26,12 @@ class retrosign:
                       text2=texts[0],
                       text3=""
                     )
-                else:
-                   await self.bot.say("\N{CROSS MARK} too many Characters for one Line")
-                   return
+            else:
+                await self.bot.say("\N{CROSS MARK} too many Characters for one Line")
+                return
         elif len(texts) != 3:
-          await self.bot.say("\N{CROSS MARK} please provide three strings seperated by `|`")
-          return
+            await self.bot.say("\N{CROSS MARK} please provide three strings seperated by `|`")
+            return
         else:
             data = dict(
               bcg=choice([1, 2, 3, 4, 5]),
@@ -41,9 +41,6 @@ class retrosign:
               text3=texts[2]
             )
         
-
-        
-
         await self.bot.type() 
 
         with aiohttp.ClientSession() as session:
