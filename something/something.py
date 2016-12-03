@@ -12,7 +12,7 @@ class something:
       self.bot = bot
     
     @commands.command(pass_context=True)
-    async def retro(self, *, content : str):
+    async def _retro_(self, *, content : str):
         """retro"""
         texts = [t.strip() for t in content.split('|')]
         if len(texts) != 3:
