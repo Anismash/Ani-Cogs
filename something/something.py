@@ -11,7 +11,7 @@ class something:
     def __init__(self, bot):
       self.bot = bot
     
-    @commands.command(pass_context=True)
+    @commands.command(pass_context=True, name="retro")
     async def _retro_(self, *, content : str):
         """retro"""
         texts = [t.strip() for t in content.split('|')]
