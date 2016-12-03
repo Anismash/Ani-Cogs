@@ -25,8 +25,8 @@ class retrosign:
                   with BytesIO(image_data) as temp_image:
                     await self.bot.upload(temp_image, filename="retro.jpg")
     
-    @commands.command(name="retrosign")
-    async def _retro_(self, *, content : str):
+    @commands.command(pass_context=True)
+    async def retrosign(self, *, content : str):
         """Make a Retrosign"""
         texts = [t.strip() for t in content.split('|')]
         if len(texts) < 3:
@@ -61,7 +61,7 @@ class retrosign:
         
         
                     
-    @_retro_.command(pass_context=True, no_pm=True)
+    @_retro_.command(pass_context=True)
     async def top(self, *, content : str):
         """Make a Retrosign with top and middle Text"""
         texts = [t.strip() for t in content.split('|')]
@@ -79,9 +79,9 @@ class retrosign:
             )
             do_it()
             
-    @_retro_.command(pass_context=True, no_pm=True)
+    @_retro_.command(pass_context=True)
     async def bottom(self, *, content : str):
-        """Make a Retrosign with top and middle Text"""
+        """Make a Retrosign with middle and bottom Text"""
         texts = [t.strip() for t in content.split('|')]
         if len(texts) != 2:
             await self.bot.say("\N{CROSS MARK} please provide two strings seperated by `|`")
