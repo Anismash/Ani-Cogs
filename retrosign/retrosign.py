@@ -19,7 +19,7 @@ class retrosign:
         if len(texts) != 3:
           await self.bot.say("\N{CROSS MARK} please provide three strings seperated by `|`")
           return
-        elif len(texts) = 3:
+        elif len(texts) > 1:
             data = dict(
               bcg=choice([1, 2, 3, 4, 5]),
               txt=choice([1, 2, 3, 4]),
