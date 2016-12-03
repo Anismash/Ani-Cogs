@@ -21,7 +21,7 @@ class retrosign:
               bcg=choice([1, 2, 3, 4, 5]),
               txt=choice([1, 2, 3, 4]),
               text1="",
-              text2=texts,
+              text2=texts[0],
               text3=""
             )
         elif len(texts) != 3:
