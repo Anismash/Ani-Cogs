@@ -61,7 +61,7 @@ class retrosign:
         
         
                     
-    @retro.command(name="top", pass_context=True, no_pm=True)
+    @retrosign.command(name="top", pass_context=True, no_pm=True)
     async def _retro_top(self, *, content : str):
         """Make a Retrosign with top and middle Text"""
         texts = [t.strip() for t in content.split('|')]
