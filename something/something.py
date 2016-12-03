@@ -6,13 +6,13 @@ import os
 import random
 
 
-class smt:
+class something:
     """Some Commands"""
     def __init__(self, bot):
       self.bot = bot
     
     @commands.command(pass_context=True)
-    async def make_retro(self, *, content : str):
+    async def retro(self, *, content : str):
         """retro"""
         texts = [t.strip() for t in content.split('|')]
         if len(texts) != 3:
