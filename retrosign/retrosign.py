@@ -83,7 +83,7 @@ class retrosign:
             )
             do_it(data)
     
-    def do_it(data):
+    def do_it(self, data):
         await self.bot.type() 
 
         with aiohttp.ClientSession() as session:
