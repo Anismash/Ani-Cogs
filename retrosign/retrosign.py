@@ -13,9 +13,9 @@ class retrosign:
     
     @commands.command(name="retrosign")
     async def retrosign(self, content : str):
-        """Make a Retrosign"""
-        texts = [t.strip() for t in content.split('|')]
-        if len(texts) < 3:
+        """Make a retrosign with 3 words seperated by space or one word in the middle"""
+        texts = [t.strip() for t in content.split(' ')]
+        if len(texts) < 3 and len(texts) > 1:
             lenstr = len(texts[0])
             await self.bot.say(lenstr)
             if lenstr <= 12:
@@ -39,10 +39,10 @@ class retrosign:
                               with BytesIO(image_data) as temp_image:
                                 await self.bot.upload(temp_image, filename="retro.jpg")
             else:
-                await self.bot.say("\N{CROSS MARK} too many Characters for one Line")
+                await self.bot.say("\N{CROSS MARK} too many characters for one line")
                 return
         elif len(texts) != 3:
-            await self.bot.say("\N{CROSS MARK} please provide three strings seperated by `|`")
+            await self.bot.say("\N{CROSS MARK} please provide three words seperated by space or one word")
             return
         else:
             global data
@@ -69,10 +69,10 @@ class retrosign:
                     
     @commands.command(name="retrotopsign")
     async def _top_(self, content : str):
-        """Make a Retrosign with top and middle Text"""
-        texts = [t.strip() for t in content.split('|')]
+        """Make a retrosign with top and middle text"""
+        texts = [t.strip() for t in content.split(' ')]
         if len(texts) != 2:
-            await self.bot.say("\N{CROSS MARK} please provide two strings seperated by `|`")
+            await self.bot.say("\N{CROSS MARK} please provide two words seperated by space")
             return
         else:
             global data
@@ -97,10 +97,10 @@ class retrosign:
             
     @commands.command(name="retrobottomsign")
     async def _bottom_(self, content : str):
-        """Make a Retrosign with middle and bottom Text"""
-        texts = [t.strip() for t in content.split('|')]
+        """Make a retrosign with middle and bottom text"""
+        texts = [t.strip() for t in content.split(' ')]
         if len(texts) != 2:
-            await self.bot.say("\N{CROSS MARK} please provide two strings seperated by `|`")
+            await self.bot.say("\N{CROSS MARK} please provide two words seperated by space")
             return
         else:
             global data
