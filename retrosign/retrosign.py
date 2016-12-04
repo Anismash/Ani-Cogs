@@ -25,7 +25,7 @@ class retrosign:
                   with BytesIO(image_data) as temp_image:
                     await self.bot.upload(temp_image, filename="retro.jpg")
     
-    @commands.command(pass_context=True)
+    @commands.group(pass_context=True)
     async def retrosign(self, *, content : str):
         """Make a Retrosign"""
         texts = [t.strip() for t in content.split('|')]
