@@ -13,8 +13,8 @@ class retrosign:
     
     @commands.command(name="retrosign")
     async def retrosign(self, *, content : str):
-        """Make a retrosign with 3 words seperated by space or one word in the middle"""
-        texts = [t.strip() for t in content.split()]
+        """Make a retrosign with 3 words seperated by ';' or one word in the middle"""
+        texts = [t.strip() for t in content.split(';')]
         if len(texts) < 3 and not len(texts) > 1:
             lenstr = len(texts[0])
             if lenstr <= 12:
@@ -40,7 +40,7 @@ class retrosign:
                 await self.bot.say("\N{CROSS MARK} too many characters for one line")
                 return
         elif len(texts) != 3:
-            await self.bot.say("\N{CROSS MARK} please provide three words seperated by space or one word")
+            await self.bot.say("\N{CROSS MARK} please provide three words seperated by ';' or one word")
             return
         else:
             data = dict(
@@ -67,9 +67,9 @@ class retrosign:
     @commands.command(name="retrotopsign")
     async def _top_(self, *, content : str):
         """Make a retrosign with top and middle text"""
-        texts = [t.strip() for t in content.split()]
+        texts = [t.strip() for t in content.split(';')]
         if len(texts) != 2:
-            await self.bot.say("\N{CROSS MARK} please provide two words seperated by space")
+            await self.bot.say("\N{CROSS MARK} please provide two words seperated by ';'")
             return
         else:
             data = dict(
@@ -94,9 +94,9 @@ class retrosign:
     @commands.command(name="retrobottomsign")
     async def _bottom_(self, *, content : str):
         """Make a retrosign with middle and bottom text"""
-        texts = [t.strip() for t in content.split()]
+        texts = [t.strip() for t in content.split(';')]
         if len(texts) != 2:
-            await self.bot.say("\N{CROSS MARK} please provide two words seperated by space")
+            await self.bot.say("\N{CROSS MARK} please provide two words seperated by ';'")
             return
         else:
             data = dict(
