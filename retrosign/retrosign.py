@@ -27,7 +27,7 @@ class retrosign:
                       text2=texts[0],
                       text3=""
                     )
-                    do_it()
+                    retrosign.do_it()
             else:
                 await self.bot.say("\N{CROSS MARK} too many Characters for one Line")
                 return
@@ -43,7 +43,7 @@ class retrosign:
               text2=texts[1],
               text3=texts[2]
             )
-            return(data)
+            retrosign.do_it()
         
         
                     
@@ -63,7 +63,7 @@ class retrosign:
               text2=texts[1],
               text3=""
             )
-            do_it(data)
+            retrosign.do_it()
             
     @retrosign.command()
     async def bottom(self, content : str):
@@ -81,11 +81,10 @@ class retrosign:
               text2=texts[0],
               text3=[1]
             )
-            do_it(data)
+            retrosign.do_it()
     
     async def do_it(self, data):
         await self.bot.type() 
-
         with aiohttp.ClientSession() as session:
           async with session.post("http://photofunia.com/effects/retro-wave", data=data) as response:
             if response.status == 200:
