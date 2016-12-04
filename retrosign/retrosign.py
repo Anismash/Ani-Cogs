@@ -15,6 +15,7 @@ class retrosign:
     async def retrosign(self, content : str):
         """Make a retrosign with 3 words seperated by space or one word in the middle"""
         texts = [t.strip() for t in content.split(' ')]
+        await self.bot.say(len(texts))
         if len(texts) < 3 and len(texts) > 1:
             lenstr = len(texts[0])
             await self.bot.say(lenstr)
