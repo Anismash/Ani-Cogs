@@ -14,7 +14,7 @@ class retrosign:
     @commands.command(name="retrosign")
     async def retrosign(self, content : str):
         """Make a retrosign with 3 words seperated by space or one word in the middle"""
-        texts = [t.strip() for t in content.split(' ')]
+        texts = [t.strip() for t in content.split()]
         await self.bot.say(len(texts))
         if len(texts) < 3 and len(texts) > 1:
             lenstr = len(texts[0])
@@ -71,7 +71,7 @@ class retrosign:
     @commands.command(name="retrotopsign")
     async def _top_(self, content : str):
         """Make a retrosign with top and middle text"""
-        texts = [t.strip() for t in content.split(' ')]
+        texts = [t.strip() for t in content.split()]
         if len(texts) != 2:
             await self.bot.say("\N{CROSS MARK} please provide two words seperated by space")
             return
@@ -99,7 +99,7 @@ class retrosign:
     @commands.command(name="retrobottomsign")
     async def _bottom_(self, content : str):
         """Make a retrosign with middle and bottom text"""
-        texts = [t.strip() for t in content.split(' ')]
+        texts = [t.strip() for t in content.split()]
         if len(texts) != 2:
             await self.bot.say("\N{CROSS MARK} please provide two words seperated by space")
             return
