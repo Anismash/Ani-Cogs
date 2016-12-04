@@ -25,8 +25,8 @@ class retrosign:
                   with BytesIO(image_data) as temp_image:
                     await self.bot.upload(temp_image, filename="retro.jpg")
     
-    @commands.group(name="retrosign",pass_context=True)
-    async def _retrosign_(self, *, content : str):
+    @commands.group(pass_context=True)
+    async def retrosign(self, content : str):
         """Make a Retrosign"""
         texts = [t.strip() for t in content.split('|')]
         if len(texts) < 3:
@@ -61,8 +61,8 @@ class retrosign:
         
         
                     
-    @_retrosign_.command(pass_context=True)
-    async def top(self, *, content : str):
+    @retrosign.command(pass_context=True)
+    async def top(self, content : str):
         """Make a Retrosign with top and middle Text"""
         texts = [t.strip() for t in content.split('|')]
         if len(texts) != 2:
@@ -79,8 +79,8 @@ class retrosign:
             )
             do_it()
             
-    @_retrosign_.command(pass_context=True)
-    async def bottom(self, *, content : str):
+    @retrosign.command(pass_context=True)
+    async def bottom(self, content : str):
         """Make a Retrosign with middle and bottom Text"""
         texts = [t.strip() for t in content.split('|')]
         if len(texts) != 2:
