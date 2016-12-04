@@ -111,18 +111,17 @@ class retrosign:
               text2=texts[0],
               text3=[1]
             )
-            do_it()
-        await self.bot.type() 
-        with aiohttp.ClientSession() as session:
-          async with session.post("http://photofunia.com/effects/retro-wave", data=data) as response:
-            if response.status == 200:
-              soup = b_s(await response.text(), "lxml")
-              download_url = soup.find("div", class_="downloads-container").ul.li.a["href"]
-              async with session.get(download_url) as image_response:
-                if image_response.status == 200:
-                  image_data = await image_response.read()
-                  with BytesIO(image_data) as temp_image:
-                    await self.bot.upload(temp_image, filename="retro.jpg")
+            await self.bot.type() 
+            with aiohttp.ClientSession() as session:
+              async with session.post("http://photofunia.com/effects/retro-wave", data=data) as response:
+                if response.status == 200:
+                  soup = b_s(await response.text(), "lxml")
+                  download_url = soup.find("div", class_="downloads-container").ul.li.a["href"]
+                  async with session.get(download_url) as image_response:
+                    if image_response.status == 200:
+                      image_data = await image_response.read()
+                      with BytesIO(image_data) as temp_image:
+                        await self.bot.upload(temp_image, filename="retro.jpg")
                   
 def setup(bot):
   n = retrosign(bot)
