@@ -12,7 +12,7 @@ class retrosign:
       self.bot = bot  
     
     @commands.command(name="retrosign")
-    async def retrosign(self, content : str):
+    async def retrosign(self, *, content : str):
         """Make a retrosign with 3 words seperated by space or one word in the middle"""
         texts = [t.strip() for t in content.split()]
         await self.bot.say(len(texts))
@@ -69,7 +69,7 @@ class retrosign:
         
                     
     @commands.command(name="retrotopsign")
-    async def _top_(self, content : str):
+    async def _top_(self, *, content : str):
         """Make a retrosign with top and middle text"""
         texts = [t.strip() for t in content.split()]
         if len(texts) != 2:
@@ -97,7 +97,7 @@ class retrosign:
                         await self.bot.upload(temp_image, filename="retro.jpg")
             
     @commands.command(name="retrobottomsign")
-    async def _bottom_(self, content : str):
+    async def _bottom_(self, *, content : str):
         """Make a retrosign with middle and bottom text"""
         texts = [t.strip() for t in content.split()]
         if len(texts) != 2:
