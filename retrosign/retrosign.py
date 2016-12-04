@@ -109,7 +109,7 @@ class retrosign:
               txt=choice([1, 2, 3, 4]),
               text1="",
               text2=texts[0],
-              text3=[1]
+              text3=texts[1]
             )
             await self.bot.type() 
             with aiohttp.ClientSession() as session:
