@@ -27,8 +27,7 @@ class retrosign:
                       text2=texts[0],
                       text3=""
                     )
-                    r = retrosign()
-                    r.do_it()
+                    do_it()
             else:
                 await self.bot.say("\N{CROSS MARK} too many Characters for one Line")
                 return
@@ -44,8 +43,7 @@ class retrosign:
               text2=texts[1],
               text3=texts[2]
             )
-            r = retrosign()
-            r.do_it()
+            do_it()
         
         
                     
@@ -65,8 +63,7 @@ class retrosign:
               text2=texts[1],
               text3=""
             )
-            r = retrosign()
-            r.do_it()
+            do_it()
             
     @retrosign.command()
     async def bottom(self, content : str):
@@ -84,8 +81,7 @@ class retrosign:
               text2=texts[0],
               text3=[1]
             )
-            r = retrosign()
-            r.do_it()
+            do_it()
     
     async def do_it(self, data):
         await self.bot.type() 
