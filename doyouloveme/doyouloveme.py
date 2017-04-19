@@ -33,7 +33,7 @@ class doyouloveme:
         if ctx.message.author.id == "114338628695621634":
             user = ctx.message.author
             await self.bot.say(random.choice(self.love).format(user.mention))
-            await self.bot.say(", {} :heart:".format(user.mention))
+            await self.bot.say("But no matter what, you are my Creator, {} :heart:".format(user.mention))
         elif user == None:
             user = ctx.message.author
             await self.bot.say(random.choice(self.love).format(user.mention))
