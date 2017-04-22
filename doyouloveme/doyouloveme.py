@@ -31,9 +31,12 @@ class doyouloveme:
     async def doyouloveme(self, ctx, *, user : discord.Member=None):
         """Random Love Answer"""
         if ctx.message.author.id == "114338628695621634":
-            user = ctx.message.author
-            await self.bot.say(random.choice(self.love).format(user.mention))
-            await self.bot.say("But no matter what, you are my Creator, {} :heart:".format(user.mention))
+            if user == None:
+                user = ctx.message.author
+                await self.bot.say(random.choice(self.love).format(user.mention))
+                await self.bot.say("But no matter what, you are my Creator, {} :heart:".format(user.mention))
+            else: 
+                await self.bot.say(random.choice(self.loveothers).format(user.mention))
         elif user == None:
             user = ctx.message.author
             await self.bot.say(random.choice(self.love).format(user.mention))
