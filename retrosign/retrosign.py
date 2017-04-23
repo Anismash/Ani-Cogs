@@ -42,6 +42,15 @@ class retrosign:
         elif len(texts) != 3:
             await self.bot.say("\N{CROSS MARK} please provide three words seperated by ';' or one word")
             return
+        elif len(texts[0]) <= 12
+            await self.bot.say("\N{CROSS MARK} Your First Word(s) is/are too long")
+            return
+        elif len(texts[1]) <= 12:
+            await self.bot.say("\N{CROSS MARK} Your Second Word(s) is/are too long")
+            return
+        elif len(texts[2]) <= 12:
+            await self.bot.say("\N{CROSS MARK} Your Third Word(s) is/are too long")
+            return
         else:
             data = dict(
               bcg=choice([1, 2, 3, 4, 5]),
