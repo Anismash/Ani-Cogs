@@ -42,34 +42,38 @@ class retrosign:
         elif len(texts) != 3:
             await self.bot.say("\N{CROSS MARK} please provide three words seperated by ';' or one word")
             return
-        elif len(texts[0]) <= 12
-            await self.bot.say("\N{CROSS MARK} Your First Word(s) is/are too long")
-            return
-        elif len(texts[1]) <= 12:
-            await self.bot.say("\N{CROSS MARK} Your Second Word(s) is/are too long")
-            return
-        elif len(texts[2]) <= 12:
-            await self.bot.say("\N{CROSS MARK} Your Third Word(s) is/are too long")
-            return
         else:
-            data = dict(
-              bcg=choice([1, 2, 3, 4, 5]),
-              txt=choice([1, 2, 3, 4]),
-              text1=texts[0],
-              text2=texts[1],
-              text3=texts[2]
-            )
-            await self.bot.type() 
-            with aiohttp.ClientSession() as session:
-              async with session.post("http://photofunia.com/effects/retro-wave", data=data) as response:
-                if response.status == 200:
-                  soup = b_s(await response.text(), "lxml")
-                  download_url = soup.find("div", class_="downloads-container").ul.li.a["href"]
-                  async with session.get(download_url) as image_response:
-                    if image_response.status == 200:
-                      image_data = await image_response.read()
-                      with BytesIO(image_data) as temp_image:
-                        await self.bot.upload(temp_image, filename="retro.jpg")
+            lenstr1 = len(texts[0])
+            lenstr2 = len(texts[1])
+            lenstr3 = len(texts[2])
+            if lenstr1 <= 12
+                await self.bot.say("\N{CROSS MARK} Your First Word(s) is/are too long")
+                return
+            elif lenstr2 <= 12:
+                await self.bot.say("\N{CROSS MARK} Your Second Word(s) is/are too long")
+                return
+            elif lenstr3 <= 12:
+                await self.bot.say("\N{CROSS MARK} Your Third Word(s) is/are too long")
+                return
+            else:
+                data = dict(
+                  bcg=choice([1, 2, 3, 4, 5]),
+                  txt=choice([1, 2, 3, 4]),
+                  text1=texts[0],
+                  text2=texts[1],
+                  text3=texts[2]
+                )
+                await self.bot.type() 
+                with aiohttp.ClientSession() as session:
+                  async with session.post("http://photofunia.com/effects/retro-wave", data=data) as response:
+                    if response.status == 200:
+                      soup = b_s(await response.text(), "lxml")
+                      download_url = soup.find("div", class_="downloads-container").ul.li.a["href"]
+                      async with session.get(download_url) as image_response:
+                        if image_response.status == 200:
+                          image_data = await image_response.read()
+                          with BytesIO(image_data) as temp_image:
+                            await self.bot.upload(temp_image, filename="retro.jpg")
         
         
                     
