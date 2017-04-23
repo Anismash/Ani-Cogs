@@ -46,7 +46,7 @@ class retrosign:
             lenstr1 = len(texts[0])
             lenstr2 = len(texts[1])
             lenstr3 = len(texts[2])
-            if lenstr1 <= 12
+            if lenstr1 <= 12:
                 await self.bot.say("\N{CROSS MARK} Your First Word(s) is/are too long")
                 return
             elif lenstr2 <= 12:
