@@ -3,5 +3,6 @@
     "INSTALL_MSG" : "You will install Misc.",
     "NAME" : "Misc",
     "SHORT" : "Command Collection",
-    "DESCRIPTION" : "A Collection of random commands"
+    "DESCRIPTION" : "A Collection of random commands",
+    "REQUIREMENTS": ["bs4", "lxml"]
 }
