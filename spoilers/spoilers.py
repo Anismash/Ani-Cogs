@@ -34,7 +34,7 @@ class Spoilers:
         except IndexError:
             await self.bot.say("Invalid ID.")
             return
-            msg = "Spoiler about {} from <@{}>\n\n{}".format(spoiler["tag"], spoiler["author"], spoiler["content"])
+        msg = "Spoiler about {} from <@{}>\n\n{}".format(spoiler["tag"], spoiler["author"], spoiler["content"])
         await self.bot.whisper(msg)
 
     def add_spoiler(self, ctx, tag, content):
