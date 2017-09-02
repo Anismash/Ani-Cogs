@@ -21,7 +21,7 @@ class Spoilers:
             await self.bot.say("I lack the permissions to delete that message!")
             return
         spoiler, spoiler_id = self.add_spoiler(ctx, tag, content)
-        await self.bot.say("Spoiler about {} by {}. Do {}spoiler show {} "
+        await self.bot.say("Spoiler about {} by {}. Do ``{}spoiler show {}`` "
                            "to see it!"
                            "".format(tag, author.display_name, ctx.prefix, spoiler_id))
 
