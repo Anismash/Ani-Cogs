@@ -16,7 +16,7 @@ class doyouloveme:
                      "I-It's not that I like you or anything... http://i.imgur.com/b0RWwM2.gif",
                      "If you bow down and kiss my feet, {} http://i.imgur.com/gD2w8oV.gif",
                      "Nope. http://i.imgur.com/yqKQTef.gif",
-                     "That's funny, {} http://i.imgur.com/ZnmFUhR.gif",
+                     "Leave me alone, {} https://i.imgur.com/MPNoMuS.jpg",
                      "You are scaring me http://i.imgur.com/9CznZbn.gif",
                      "I only need my games http://i.imgur.com/nix5Siw.gif",
                      "We will have much fun http://i.imgur.com/ofqTvsu.gif",
